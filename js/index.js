@@ -7,8 +7,8 @@
 window.onload = function() {
 	//variables
 	var form = document.getElementById("form");
-	var inputTitle = document.getElementById("inputTitle");
-    var inputContent = document.getElementById("inputContent");
+	var inputTitle = document.getElementById("inputTitle"); //제목
+    var inputContent = document.getElementById("inputContent"); //내용
     var inputPriority = document.getElementById("inputPriority"); //우선순위
     var inputDuedate = document.getElementById("inputDuedate"); //마감기한
     
@@ -147,40 +147,11 @@ window.onload = function() {
 	function displayList() {
 		list.style.borderTop = "2px solid white";
 		todoList = JSON.parse(localStorage.getItem("todoList"));
-        console.log("갯수" + todoList);
 		todoList.forEach(function(element) {
-			console.log("SSSq"+element.itemDuedate);
 			var title = element.itemTitle;
             var content = element.itemContent;
             var priority = element.itemPriority;
             var duedate = element.itemDuedate;
-            var d = new Date();
-            console.log("ㅏㅏㅏ"+d.getFullYear() + typeof d.getFullYear());
-            console.log("ㅏㅏㅏ"+d.getHours() + typeof d.getHours());
-            var n=1;
-            console.log("kkk"+typeof d.getHours());
-            console.log("kkk"+typeof n);
-            
-            if(d.getHours()===1){
-                console.log("같다!!!!!!!!");
-            }
-            if(d.getFullYear()===2019){
-                console.log("년이같다!!!!!!!!!!!!!!!!!!!!!!!")
-            }
-            console.log("SSS년"+Number(duedate.substring(0,4)));
-            console.log("SSS년"+typeof Number(duedate.substring(0,4)));
-            console.log("SSS월"+duedate.substring(5,7));
-            console.log("SSS일"+duedate.substring(8,10));
-            console.log("SSS시"+duedate.substring(11,13));
-            console.log("SSS분"+duedate.substring(14,16));
-            console.log("XXX년"+d.getFullYear());
-            console.log("XXX월"+(d.getMonth()+1));
-            console.log("XXX일"+d.getDate());
-            console.log("XXX시"+d.getHours());
-            console.log("XXX분"+d.getMinutes());
-            console.log("시간시간시간"+d.getTime());
-            var k=new Date(Number(duedate.substring(0,4)),Number(duedate.substring(5,7)),Number(duedate.substring(8,10)));
-            console.log("시간시간시간2"+k.getTime());
             
 			var itemTitle = `<li id="li-${id}" href="#" class="list-group-item list-group-item-action">
                 <div id="list" class="d-flex w-100 justify-content-between">
@@ -207,9 +178,6 @@ window.onload = function() {
 				li.style.textDecoration = "line-through";
 				li.childNodes[1].checked = element.checked;
 			}
-            console.log("SSSLOCAL"+localStorage.getItem("todoList"));
-            console.log("SSSLIST" + todoList);
-            console.log("SSSSPLICE" + todoList);
 			id++;
 		});
 	}
@@ -262,12 +230,9 @@ window.onload = function() {
                 var currentMonth = (currentDateTime.getMonth()+1);
                 var currentDate = currentDateTime.getDate();
                 var currentHr = currentDateTime.getHours();
-//                if(currentHr.length()
                 var currentMn = currentDateTime.getMinutes();
                 var due = new Date(dueYear, dueMonth, dueDate, dueHr, dueMn);
                 var cur = new Date(currentYear, currentMonth, currentDate, currentHr, currentMn);
-                console.log("due밀리초 "+due.getTime());
-                console.log("cur밀리초 "+cur.getTime());
                 if(due.getTime()-currentDateTime.getTime() >= 0){
                     console.log("ALARM!!!!!!!!!!!!!!!");
                     var notification = new Notification(title+" 의 기간이 만료됐습니다.", {
@@ -275,7 +240,7 @@ window.onload = function() {
                         body: content,
                     });
                     notification.onclick = function(){
-                        window.open("http://localhost/todo");
+                        window.open("https://jaden2208.github.io/Jtodolist/");
                     };                        
                 }
             });
