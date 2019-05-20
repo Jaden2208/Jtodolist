@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title>TodoList App</title>
+	<!-- bootstrap cdn -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">	
+</head>
+
+<body>
+	<div class="hero">
+		<div class="container">
+			<h1 class="display-2 text-center">TodoList</h1>
+			<p class="lead text-center">자신의 할 일 목록을 작성하세요</p>
+			<div class="row">
+				<form id="form" class="col-lg-6 col-8 mx-auto">
+					<div class="input-group">
+                        <input id="inputTitle" class="form-control" placeholder="제목" value="">
+					</div>
+                    <div class="input-group">
+                        <input id="inputContent" class="form-control" placeholder="내용" value="">                        
+                    </div>
+                    <div class="input-group">
+                        <select id="inputPriority" class="form-control">
+                          <option>우선 순위(미지정 시 기본 값(-)으로)</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        마감기한
+                         <input id="inputDuedate" type="datetime-local" />
+                    </div>
+                    <div class="row">
+                        <button id="btn" type="button" class="btn btn-primary mx-auto">저장</button>
+                        <button id="btnAlarm" type="button" class="btn btn-primary mx-auto">알림</button>
+                    </div>
+				</form>
+			</div>
+            <ul id="list" class="list-group">
+                
+<!--                여기 부터 숨김                -->
+<!--
+              <li id="li-${id}" href="#" class="list-group-item list-group-item-action">
+                <div id="list" class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">${title}</h5>
+                    <small class="text-muted">
+                      <span class="badge badge-primary badge-pill">${priority}</span>
+                    </small>
+                </div>
+                  <input id="box-${id}" class="checkboxes" type="checkbox">
+                <p class="mb-1">${content}</p>
+                  <small class="text-muted">${duedate}</small>
+                  <div align="right">
+                  <button type="button" id="btnDel-${id}" class="btn btn-danger btn-sm">삭제</button></div>
+              </li>
+-->
+<!--                여기 까지 숨김                -->
+            </ul>
+			<div class="row">
+				<button id="btnClr" type="button" class="btn btn-primary mx-auto ">전체 삭제</button>
+			</div>				
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/index.js"></script>
+	
+</body>
+</html>
